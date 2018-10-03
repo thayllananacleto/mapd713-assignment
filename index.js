@@ -41,3 +41,15 @@ function isValidProduct(product){
 router.get("/",function (req,res){
     res.json(products);
 });
+
+// Get specific product based on Id
+router.get("/:Id",function(req,res){
+    var productId = parseInt(req.params.Id);
+    var currentProduct = products.filter(p=>p.Id==productId)[0];
+ 
+    if(currentProduct){
+        res.json(currentProduct);
+    }else{
+        res.sendStatus(404);
+    }
+});
