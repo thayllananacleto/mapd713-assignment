@@ -54,7 +54,7 @@ router.get("/:Id",function(req,res){
     }
 });
 
-/// Creating a product
+// Creating a product
 router.post("/", function (req,res) {
     var product = req.body;
     var isValid =isValidProduct(product);
@@ -63,5 +63,26 @@ router.post("/", function (req,res) {
         res.send(product);
     } else{
         res.sendStatus(500);
+    }
+});
+
+// Updating a product by Id
+router.put("/:Id",function (req,res) {  
+    var productId = parseInt(req.params.Id);
+    var currentProduct = products.filter(p=>p.Id==productId)[0];
+    if(currentProduct){
+        let product = req.body;
+        var isValid = isValidProduct(product);
+        if(isValid){
+            currentProduct.Id = product.Id;
+            currentProduct.Product = product.Product;
+            currentProduct.Price = product.Price;
+            currentProduct.Brand = product.Brand;
+            res.sendStatus(204);
+        }else{
+            res.sendStatus(500);
+        }
+    }else{
+        res.sendStatus(404);
     }
 });
