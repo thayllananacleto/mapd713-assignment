@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 var port = process.env.port || 3000;
 var router = express.Router();
  
-app.use('/api/employee', router);
+app.use('/api/product', router);
 app.listen(port);
 
 var products= [
@@ -36,3 +36,8 @@ function isValidProduct(product){
     }
     return true;
 }
+
+// Get all the products
+router.get("/",function (req,res){
+    res.json(products);
+});
