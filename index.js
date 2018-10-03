@@ -11,14 +11,7 @@ var router = express.Router();
 app.use('/api/product', router);
 app.listen(port);
 
-var products= [
-    {
-        Id: 1,
-        Product: "Test",
-        Price: 99,
-        Brand: "Brand Test"
-    }
-];
+var products= []
 
 //Validating the product
 function isValidProduct(product){
@@ -87,14 +80,8 @@ router.put("/:Id",function (req,res) {
     }
 });
 
-// Delete employee
-router.delete("/:Id", function(req,res){
-    var productId = parseInt(req.params.Id);
-    var currentProduct = products.filter(p=>p.Id==productId)[0];
-    if(currentProduct){
-        products = products.filter(p=>p.Id!=productId);
-        res.sendStatus(204);
-    }else{
-        res.sendStatus(404);
-    }
+// Delete product
+router.delete("/sendDelete", function(req,res){
+    products = []
+    Response.send(200)
 });
