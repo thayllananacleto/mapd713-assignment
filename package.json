@@ -1,0 +1,33 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "Assignment Project",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "grunt validate --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thayllananacleto/mapd713-assignment.git"
+  },
+  "keywords": [
+    "enterprise",
+    "assignment",
+    "mapd713",
+    "node",
+    "nodejs",
+    "app"
+  ],
+  "author": "Thayllan Anacleto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thayllananacleto/mapd713-assignment/issues"
+  },
+  "homepage": "https://github.com/thayllananacleto/mapd713-assignment#readme"
+}
