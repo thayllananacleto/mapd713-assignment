@@ -10,3 +10,29 @@ var router = express.Router();
  
 app.use('/api/employee', router);
 app.listen(port);
+
+var products= [
+    {
+        Id: 1,
+        Product: "Test",
+        Price: 99,
+        Brand: "Brand Test"
+    }
+];
+
+//Validating the product
+function isValidProduct(product){
+    if(!product.Id){
+        return false;
+    }
+    if(!product.Product){
+        return false;
+    }
+    if(!product.Price){
+        return false;
+    }
+    if(!product.Brand){
+        return false;
+    }
+    return true;
+}
