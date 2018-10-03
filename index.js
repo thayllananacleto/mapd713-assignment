@@ -86,3 +86,15 @@ router.put("/:Id",function (req,res) {
         res.sendStatus(404);
     }
 });
+
+// Delete employee
+router.delete("/:Id", function(req,res){
+    var productId = parseInt(req.params.Id);
+    var currentProduct = products.filter(p=>p.Id==productId)[0];
+    if(currentProduct){
+        products = products.filter(p=>p.Id!=productId);
+        res.sendStatus(204);
+    }else{
+        res.sendStatus(404);
+    }
+});
