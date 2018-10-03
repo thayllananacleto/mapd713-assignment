@@ -53,3 +53,15 @@ router.get("/:Id",function(req,res){
         res.sendStatus(404);
     }
 });
+
+/// Creating a product
+router.post("/", function (req,res) {
+    var product = req.body;
+    var isValid =isValidProduct(product);
+    if(isValid){
+        products.push(product);
+        res.send(product);
+    } else{
+        res.sendStatus(500);
+    }
+});
