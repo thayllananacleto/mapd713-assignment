@@ -6,9 +6,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var port = 3000;
-//var router = express.Router();
+var cget = 0;
+var cpost = 0;
 
-//app.use('/api/product', router);
 app.listen(port, (err) => {
 
     console.log('Server %s listening at %s', app.name, app.url)
@@ -22,18 +22,30 @@ var products = []
 
 // Get all the products
 app.get("/sendGet", function (req, res) {
+    console.log("sendGet: received request")
+    cget = cget + 1
     res.json(products);
+    console.log("sendGet: sending response")
+    cpost = cpost + 1
 });
 
 // Creating a product
 app.post("/sendPost", function (req, res) {
+    console.log("sendPost: received request")
+    cget = cget + 1
     var product = req.body;
     products.push(product);
     res.send(200);
+    console.log("sendPost: sending response")
+    cpost = cpost + 1
 });
 
-// Delete product
+// Delete all products
 app.delete("/sendDelete", function (req, res) {
+    console.log("sendDelete: received request")
+    cget = cget + 1
     products = []
-    Response.send(200)
+    res.send(200)
+    console.log("sendDelete: sending response")
+    cpost = cpost + 1
 });
