@@ -11,7 +11,7 @@ var cpost = 0;
 
 app.listen(port, (err) => {
 
-    console.log('Server %s listening at %s', app.name, app.url)
+    console.log('Server http://127.0.0.1/ listening at 3000')
     console.log('Resources:')
     console.log(' /products')
     console.log(' /products/:id')
